@@ -1,7 +1,7 @@
 import { Note } from "@/types/type";
 import { Icons } from "@/components/icons";
 import { useContext } from "react";
-import { ContextData, NoteContext } from "./header";
+import { ContextData, NoteContext } from "@/App";
 
 export default function SearchBar() {
     const { setNotes, setIsLoading } = useContext(NoteContext) as ContextData;

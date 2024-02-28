@@ -30,7 +30,7 @@ export default function Sidebar() {
                     </TooltipContent>
                 </Tooltip>
                 {tags.map((tag) => (
-                    <Tooltip delayDuration={200}>
+                    <Tooltip delayDuration={200} key={tag}>
                         <TooltipTrigger asChild>
                             <button
                                 className={`bg-${tag}-300 scale-125 rounded-full p-2 hover:scale-150 transition ease-in-out mx-auto`}

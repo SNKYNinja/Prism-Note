@@ -7,4 +7,4 @@ export interface Note {
     favorite: boolean;
 }
 
-type Tags = "orange" | "red" | "blue" | "purple" | "green" | "emerald";
+type Tags = "orange" | "red" | "blue" | "purple" | "emerald";

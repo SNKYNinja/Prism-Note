@@ -11,7 +11,7 @@ import {
 import { Tags } from "@/types/type";
 
 export default function Sidebar() {
-    const tags: Tags[] = ["blue", "purple", "red", "green", "orange"];
+    const tags: Tags[] = ["blue", "purple", "red", "emerald", "orange"];
 
     return (
         <div className="h-full w-[15%] flex flex-col items-center justify-between">

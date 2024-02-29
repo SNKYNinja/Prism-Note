@@ -1,21 +1,18 @@
 import { getLocalStorage, setLocalStorage } from "@/lib/utils";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { NoteContext } from "@/components/card";
 
-interface StarProps extends React.SVGProps<SVGSVGElement> {
-    noteId: number;
-}
-
-export default function Star({ noteId, ...props }: StarProps) {
+export default function Star({ ...props }: React.SVGProps<SVGSVGElement>) {
     const notes = getLocalStorage();
-    const note = notes.find((n) => n.id === noteId)!;
+    const { note } = useContext(NoteContext)!;
     const [isFavorite, setIsFavorite] = useState(note.favorite || false);
 
     useEffect(() => {
         const updatedNotes = notes.map((n) =>
-            n.id === noteId ? { ...n, favorite: isFavorite } : n
+            n.id === note.id ? { ...n, favorite: isFavorite } : n
         );
         setLocalStorage(updatedNotes);
-    }, [isFavorite, noteId, notes]);
+    }, [isFavorite, note, notes]);
 
     const handleChange = () => {
         setIsFavorite(!isFavorite);

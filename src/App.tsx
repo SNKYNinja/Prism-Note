@@ -108,21 +108,21 @@ import React, { createContext, useState } from "react";
 // localStorage.setItem("notes", JSON.stringify(data));
 // localStorage.clear();
 
-export interface ContextData {
+interface NotesContextData {
     notes: Note[];
     setNotes: React.Dispatch<React.SetStateAction<Note[]>>;
     isLoading: boolean;
     setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const NoteContext = createContext<ContextData | null>(null);
+export const NotesContext = createContext<NotesContextData | null>(null);
 
 function App() {
     const cards = JSON.parse(localStorage.getItem("notes")!) as Note[];
     const [notes, setNotes] = useState<Note[]>(cards);
     const [isLoading, setIsLoading] = useState(false);
     return (
-        <NoteContext.Provider
+        <NotesContext.Provider
             value={{ notes, setNotes, isLoading, setIsLoading }}
         >
             <TooltipProvider>
@@ -133,7 +133,7 @@ function App() {
                     <Toaster />
                 </div>
             </TooltipProvider>
-        </NoteContext.Provider>
+        </NotesContext.Provider>
     );
 }
 

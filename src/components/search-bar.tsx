@@ -1,10 +1,10 @@
 import { Note } from "@/types/type";
 import { Icons } from "@/components/icons";
 import { useContext } from "react";
-import { ContextData, NoteContext } from "@/App";
+import { NotesContext } from "@/App";
 
 export default function SearchBar() {
-    const { setNotes, setIsLoading } = useContext(NoteContext) as ContextData;
+    const { setNotes, setIsLoading } = useContext(NotesContext)!;
     const notes = JSON.parse(localStorage.getItem("notes")!) as Note[];
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         setIsLoading(true);

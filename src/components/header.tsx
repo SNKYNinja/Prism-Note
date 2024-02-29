@@ -2,10 +2,11 @@ import { Separator } from "@/components/ui/separator";
 import Card from "@/components/card";
 import { useContext } from "react";
 import Nav from "./nav";
-import { NoteContext } from "@/App";
+import { NotesContext } from "@/App";
 
 export default function Header() {
-    const { notes, isLoading } = useContext(NoteContext)!;
+    // TODO: Move this isLoading to Card component as it isnt needed here
+    const { notes, isLoading } = useContext(NotesContext)!;
     return (
         <div className="my-8 w-full">
             <Nav />
@@ -17,7 +18,7 @@ export default function Header() {
                         {notes.map((note) => (
                             <Card
                                 key={note.id}
-                                note={note}
+                                noteData={note}
                                 isLoading={isLoading}
                             />
                         ))}

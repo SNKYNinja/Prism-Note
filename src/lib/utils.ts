@@ -18,3 +18,27 @@ export function setLocalStorage(value: Note[]) {
 export function getLocalStorage() {
     return JSON.parse(localStorage.getItem("notes")!) as Note[];
 }
+
+export class NoteHandler {
+    constructor(
+        public notes: Note[],
+        private setNotes: React.Dispatch<React.SetStateAction<Note[]>>
+    ) {
+        this.notes = notes;
+        this.setNotes = setNotes;
+    }
+
+    addNote(note: Note) {
+        this.setNotes([note, ...this.notes]);
+    }
+
+    removeNotes(...notesId: number[]) {
+        this.notes = this.notes.filter((note) => !notesId.includes(note.id));
+        console.log(this.notes);
+    }
+
+    update() {
+        localStorage.setItem("notes", JSON.stringify(this.notes));
+        this.setNotes(this.notes);
+    }
+}

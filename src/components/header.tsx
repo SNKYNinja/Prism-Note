@@ -3,6 +3,7 @@ import Card from "@/components/card";
 import { useContext } from "react";
 import Nav from "./nav";
 import { NotesContext } from "@/App";
+import CardsSkeleton from "./card-skeleton";
 
 export default function Header() {
     // TODO: Move this isLoading to Card component as it isnt needed here
@@ -15,13 +16,17 @@ export default function Header() {
                 <h1 className="text-5xl font-medium mb-10">Notes</h1>
                 {notes ? (
                     <div className="grid grid-cols-4 gap-5 mr-12">
-                        {notes.map((note) => (
-                            <Card
-                                key={note.id}
-                                noteData={note}
-                                isLoading={isLoading}
-                            />
-                        ))}
+                        {isLoading ? (
+                            <CardsSkeleton />
+                        ) : (
+                            notes.map((note) => (
+                                <Card
+                                    key={note.id}
+                                    noteData={note}
+                                    isLoading={isLoading}
+                                />
+                            ))
+                        )}
                     </div>
                 ) : (
                     <div className="flex justify-between items-center w-[100%] h-[20vh] overflow-hidden">

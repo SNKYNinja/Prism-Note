@@ -46,7 +46,9 @@ export class NoteHandler {
     }
 
     addNote(note: Note) {
-        this.setNotes([note, ...this.notes]);
+        this.notes = this.notes.concat([...this.notes], {
+            ...note,
+        });
     }
 
     removeNotes(...notesId: number[]) {
@@ -55,7 +57,7 @@ export class NoteHandler {
     }
 
     update() {
-        localStorage.setItem("notes", JSON.stringify(this.notes));
+        setLocalStorage(this.notes);
         this.setNotes(this.notes);
     }
 }

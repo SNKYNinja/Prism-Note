@@ -75,4 +75,7 @@
     body {
         @apply bg-background text-foreground;
     }
+    .animated-button {
+        @apply border-b-[6px] outline-none hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px] transition-all;
+    }
 }

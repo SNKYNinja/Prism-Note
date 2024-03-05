@@ -95,7 +95,7 @@ export default function DeleteButton() {
                             onClick={handleCancel}
                             className={cn(
                                 buttonVariants(),
-                                "bg-zinc-400/85 hover:bg-zinc-400/85 transition-all border-zinc-400 border-b-[6px] outline-none hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]"
+                                "animated-button bg-zinc-400/85 hover:bg-zinc-400/85 border-zinc-400"
                             )}
                         >
                             Cancel
@@ -104,7 +104,7 @@ export default function DeleteButton() {
                             onClick={handleDelete}
                             className={cn(
                                 buttonVariants({ variant: "destructive" }),
-                                "transition-all border-red-600/90 border-b-[6px] outline-none hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]"
+                                "animated-button border-red-600/90"
                             )}
                         >
                             Delete

@@ -56,8 +56,13 @@ export class NoteHandler {
         console.log(this.notes);
     }
 
+    editNote(note: Note) {
+        const index = this.notes.findIndex((n) => n.id === note.id);
+        this.notes[index] = note;
+    }
+
     update() {
-        setLocalStorage(this.notes);
         this.setNotes(this.notes);
+        setLocalStorage(this.notes);
     }
 }

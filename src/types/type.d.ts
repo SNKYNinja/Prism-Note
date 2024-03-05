@@ -1,7 +1,9 @@
+import { OutputData } from "@editorjs/editorjs";
+
 export interface Note {
     id: number;
     title: string;
-    content: string;
+    content: OutputData | undefined;
     tag: Tags;
     timeCreated: string;
     favorite: boolean;

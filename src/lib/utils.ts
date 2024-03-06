@@ -71,8 +71,7 @@ export class NoteHandler {
     }
 
     editNote(note: Note) {
-        const index = this.notes.findIndex((n) => n.id === note.id);
-        this.notes[index] = note;
+        this.notes = this.notes.map((n) => (n.id === note.id ? note : n));
     }
 
     update() {
